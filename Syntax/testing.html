@@ -7,18 +7,20 @@
 <body>
 	<script type="text/javascript">
 		let a=10;
-		var b=20;
+		b=20;
 		const c=40;
 		{
 			let a=99;
-			var b=199;
 			const c=399;
 		}
 		//let a="again" error
 		//c=41 error
-		var b=10;
-		var b="repeat  asignment";
-		console.log(a,b,c);
+		const array=[1,2,3,4,5];
+		var b;
+		array[0]=6;
+		console.log(b);
+		array.push(99);
+
 	</script>
 </body>
 </html>
