@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+	#date{
+		font-size: 100px;
+		text-align: center;
+	}
+</style>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div id="date">
+	</div>
+	<script type="text/javascript">
+	setInterval(print,450);
+	function print(){
+		const d=new Date();
+		var hr=d.getHours();
+		var min=d.getMinutes();
+		var sec=d.getSeconds();
+		var ms=d.getMilliseconds();
+		if(hr<10)hr="0"+hr;
+		if(min<10)min="0"+min;
+		if(sec<10)sec="0"+sec;
+		if(ms<100)ms="0"+ms;
+		if(ms<10)ms="0"+ms;
+		var text=hr+": "+min+": "+sec+": "+ms;
+		document.getElementById('date').innerHTML=text;	
+	}
+	</script>
+</body>
+</html>
