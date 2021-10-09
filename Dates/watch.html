@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<canvas id="canvas" width="500" height="500"></canvas>
+	<script type="text/javascript">	
+		var c=document.getElementById("canvas");
+		var ctx=c.getContext("2d");
+		ctx.translate(250,250);
+		setInterval(drawclock,1000);
+		function drawclock(){
+			face(ctx);
+			time(ctx);
+		}
+		function face(){
+			ctx.beginPath();
+			ctx.arc(0,0,200,0,2*Math.PI);
+			ctx.stroke();
+			ctx.fillStyle='WHITE';
+			ctx.fill()
+		}
+		function time(ctx){
+			  const now=new Date();
+			  var hr=now.getHours();
+			  var mn=now.getMinutes();
+			  var sec=now.getSeconds();
+			  sec=sec/30*Math.PI;
+			  clockhand(ctx,sec);
+		}
+		function clockhand(ctx,pos){
+			  ctx.beginPath();
+  			  ctx.moveTo(0,0);
+			  ctx.rotate(pos);
+			  ctx.lineTo(0, 0-150);
+			  ctx.stroke();
+			  ctx.rotate(-pos);
+			  ctx.stroke();
+		}
+	</script>
+</body>
+</html>
